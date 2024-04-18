@@ -1,0 +1,24 @@
+version: '3.9'
+
+services:
+  mysql:
+    image: mysql:8
+    container_name: mysql-container
+    volumes:
+      - ~/docker-introducao/novo/coalize/api/db/data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: segredo
+    ports:
+      - '3636:3306'
+
+  php-apache:
+    image: yiisoftware/yii2-php:7.4-apache
+    volumes:
+      - ~/.composer-docker/cache:/root/.composer/cache:delegated
+      - ./:/app:delegated
+    container_name: php-container
+    ports:
+      - '8888:80'
+    depends_on:
+      - mysql

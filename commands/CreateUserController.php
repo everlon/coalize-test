@@ -13,10 +13,8 @@ class CreateUserController extends Controller
     {
 		// O comando será:
 		// php yii create-user "Everlon Passos" "everlon@protonmail.com" "everlon.passos" "1234567890"
-		
-		// $name = $this->ansiFormat('Alex', Console::FG_YELLOW);
-		// echo "Hello, my name is $name.";
-		
+		// ATENÇÃO: É necessário trocar a db.php para localhost:3636 para usar fora do container.
+				
 		try {
 			$user = new User();
 			$user->nome = $nome;

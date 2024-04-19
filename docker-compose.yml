@@ -4,8 +4,6 @@ services:
   mysql:
     image: mysql:8
     container_name: mysql-container
-    volumes:
-      - ~/docker-introducao/novo/coalize/api/db/data:/var/lib/mysql
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: segredo
